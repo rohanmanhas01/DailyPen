@@ -22,6 +22,9 @@ connectDB();
 
 const app = express();
 
+// Trust proxy for rate limiting (needed behind proxies like Render/Vercel)
+app.set('trust proxy', 1);
+
 // Security middleware
 app.use(
   helmet({
